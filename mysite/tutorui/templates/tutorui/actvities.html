@@ -1,0 +1,36 @@
+{% extends 'tutorui/base.html' %} {% block content %}
+
+<button id="post-check-messages" class = "btn btn-primary">Check User Messages Activity</button>
+<button id="post-check-sign-ins" class = "btn btn-primary">Check User Sign In Activity</button>
+<script> 
+    const button_sign_ins = document.getElementById("post-check-sign-ins");
+
+    button_sign_ins.addEventListener("click", async (_) => {
+      try {
+        const response = await fetch("/api/check_sign_ins", {
+          method: "post",
+          body: {},
+        });
+        console.log("Completed!", response);
+      } catch (err) {
+        console.error(`Error: ${err}`);
+      }
+    });
+
+    const button = document.getElementById("post-check-messages");
+
+    button.addEventListener("click", async (_) => {
+      try {
+        const response = await fetch("/api/check_activity_user", {
+          method: "post",
+          body: {},
+        });
+        console.log("Completed!", response);
+      } catch (err) {
+        console.error(`Error: ${err}`);
+      }
+    });
+   
+    
+  </script>
+{% endblock %}

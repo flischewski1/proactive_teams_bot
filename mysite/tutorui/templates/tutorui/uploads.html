@@ -1,0 +1,22 @@
+{% extends 'tutorui/base.html' %} 
+{% block content %}
+<h2> Uploads </h2>
+    <div class="scrollable">
+        <table style="width:100%">
+            <tr>
+                <th>Team</th>
+                <th>Dokumentname</th>
+                <th> Zeitpunkt</th>
+            </tr>
+          {% for upload in u %}
+          <tr>
+            <td>{{upload.teamid.displayName}}</td>
+            <td>{{upload.filename}}</td>
+            <td>{{upload.uploaddate}}</td>
+          </tr>
+         
+        
+          {% endfor %}
+        </table>
+    </div>
+{% endblock %}

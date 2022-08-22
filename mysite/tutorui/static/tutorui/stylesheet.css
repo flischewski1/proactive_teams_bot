@@ -1,0 +1,12 @@
+.scrollable {
+    background-color: lightgrey;
+    height: 300px; /* or any value */
+    width: 1000px;
+
+    overflow: scroll;
+}
+
+#textboxbody {
+    height:600px;
+    font-size:14pt;
+}

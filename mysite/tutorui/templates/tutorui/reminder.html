@@ -1,0 +1,78 @@
+{% extends 'tutorui/base.html' %} 
+
+{% block content %} 
+
+{% csrf_token %}
+<h2> Neuer Reminder</h2>
+<br>
+<form class="form" method="post" action="api/reminder" id="reminderform">
+  <div class="form-group row">
+    <div class="col-sm-10">
+  <input type="datetime-local" id="triggerdate" name="triggerdate" />
+</div>
+</div>
+<br>
+<div class="form-group row">
+  <div class="col-sm-6">
+  <input type="text" class="form-control" id="subject" name="subject" value="Betreff" />
+</div>
+</div>
+<br>
+<div class="form-group row">
+  <div class="col-sm-6">
+  <textarea id="body" class="form-control" rows="3" name="body" label="Nachricht">Nachricht</textarea>
+</div>
+</div>
+<br>
+  <button type="submit" class="btn btn-primary" value="Submit">Speichern</button>
+</form>
+</div>
+<br>
+<h2> Gesetzte Reminder</h2>
+    <div class="scrollable">
+        <table style="width:100%">
+            <tr>
+                <th>Zeitpunkt</th>
+                <th>Betreff</th>
+                <th> Nachricht</th>
+            </tr>
+          {% for r in reminder %}
+          <tr>
+            <td>{{r.triggerdate}}</td>
+            <td>{{r.subject}}</td>
+            <td>{{r.body}}</td>
+          </tr>
+         
+        
+          {% endfor %}
+        </table>
+    </div>
+
+<script>
+  const myform = document.getElementById("reminderform");
+
+  myform.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const formData = new FormData(this);
+   
+
+    var object = {};
+    formData.forEach(function (value, key) {
+      object[key] = value;
+    });
+    var json = JSON.stringify(object);
+
+    fetch("/api/reminder", {
+      method: "post",
+      body: json,
+    })
+      .then(function (response) {
+        return response.text();
+      })
+      .then(function (text) {
+        console.log(text);
+      });
+  });
+</script>
+{% endblock %}

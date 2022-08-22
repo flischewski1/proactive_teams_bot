@@ -1,2 +1,5 @@
 venv 
 env
+.env
+import_credentials.json
+__pycache__
