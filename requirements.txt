@@ -2,3 +2,4 @@ msal
 requests
 django
 python-dateutil
+APScheduler

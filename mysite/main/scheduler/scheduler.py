@@ -1,5 +1,4 @@
 from apscheduler.schedulers.background import BackgroundScheduler
-from django.utils import timezone
 import sys
 import requests
 import data_extraction.base_data_extraction as extraction

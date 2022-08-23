@@ -15,7 +15,6 @@ Proactive Bot Service Hermine
 │  │  ├─ admin.py
 │  │  ├─ apps.py
 │  │  ├─ migrations
-
 │  │  ├─ models.py
 │  │  ├─ scheduler
 │  │  │  ├─ scheduler.py
