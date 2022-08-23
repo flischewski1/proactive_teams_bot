@@ -3,3 +3,5 @@ requests
 django
 python-dateutil
 APScheduler
+djangorestframework
+django-cors-headers
